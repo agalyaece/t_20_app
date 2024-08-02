@@ -65,31 +65,38 @@ export default function SelectedPlayers({ onClick }) {
                   {(item.teams).map((team, teamIndex) => (
 
 
-                    <div key={teamIndex}>
+                    <div key={teamIndex} >
+                      {/* //className="h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-auto" */}
 
-                      <ul className="my-4 space-y-3">
-                        {(team.players).map((player, playerIndex) => (
-                          <li key={playerIndex}>
-                            <p className="text-sm font-semibold underline text-gray-900 dark:text-white">Team {playerIndex + 1}</p>
-                            {player.length > 0 ? (
-                              player.map((innerPlayer, innerPlayerIndex) => (
-                                <div key={innerPlayerIndex} >
-                                  <span className="flex-1 ms-3 whitespace-nowrap">
-                                    {innerPlayer.player_name_x} ---                           
-                                  </span>
-                                  <span className="inline-flex items-center justify-center px-2 py-0.5 ms - 3 text - xs font - medium text - gray - 500 bg - gray - 200 rounded dark: bg - gray - 700 dark:text-gray-400">
-                                    {innerPlayer.role}
-                                  </span>
-                                </div>
-                              ))
-                            ) : (
-                              <p>No players for this team.</p>
-                            )}
-                          </li>
-                        ))}
+                      <div className=" items-center mt-5 justify-center h-screen sm:h-64 xl:h-80 2xl:h-96 overflow-auto  bg-gray-200 dark:bg-gray-700 dark:text-white">
+                        <ul className="my-4 space-y-3 ">
+                          {(team.players).map((player, playerIndex) => (
+
+                            <li key={playerIndex}>
+                              <p className="text-sm  p-4 font-semibold underline text-gray-900 dark:text-white">Team {playerIndex + 1}</p>
+                              {player.length > 0 ? (
+                                player.map((innerPlayer, innerPlayerIndex) => (
+                                  <div key={innerPlayerIndex} >
+                                    
+                                    <span className="flex-1 ms-3 whitespace-nowrap">
+                                      {innerPlayer.player_name_x} ({innerPlayer.country}) ---
+                                    </span>
+                                    <span className="inline-flex items-center justify-center px-2 py-0.5 ms - 3 text - xs font - medium text - gray - 500 bg - gray - 200 rounded dark: bg - gray - 700 dark:text-gray-400">
+                                      {innerPlayer.role}
+                                    </span>
+                                  </div>
+                                ))) : (
+                                <p>No players for this team.</p>)
+
+                              }
+                            </li>
+
+                          ))}
 
 
-                      </ul>
+                        </ul>
+                      </div>
+
                     </div>
                   ))}
                 </div>
@@ -99,7 +106,7 @@ export default function SelectedPlayers({ onClick }) {
 
         </div>
       </div>
-    </div>
+    </div >
 
 
 

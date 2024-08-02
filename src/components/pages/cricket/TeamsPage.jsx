@@ -107,7 +107,7 @@ export default function TeamsPage() {
       <div className="flex justify-center mt-10">
 
         <button onClick={showModalHandler}
-          type="button" //data-modal-target="crypto-modal" data-modal-toggle="crypto-modal"
+          type="button" data-modal-target="crypto-modal" data-modal-toggle="crypto-modal"
           className="px-12 py-5 m-5 p-10 justify-center text-base font-xl text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
            focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  border border-gray-200  font-medium  
             dark:border-gray-700 dark:text-white "
