@@ -35,7 +35,7 @@ export default function Navbar() {
       </div>
 
       <div onClick={handleClick} className={isOpen
-        ? "overflow-y-hidden md:hidden ease-in duration-300 absolute text-gray-300 left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex flex-col"
+        ? "overflow-y-hidden md:hidden ease-in duration-300 absolute text-gray-300 left-0 top-0 w-full h-screen bg-black/90   flex flex-col"
         : "absolute top-0 h-screen left-[-100%] ease-in duration-500"}>
         <ul className="h-full w-full text-center pt-12">
           <li className="text-2xl py-8">

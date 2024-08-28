@@ -17,22 +17,38 @@ export default function CricketNavigation() {
     }
 
     return (
-        <div className="w-full min-h-[50px] flex justify-between items-center  top-0  z-10 bg-zinc-200 ">
+        <div className="w-full min-h-[50px] flex  justify-between items-center  top-0  z-10 bg-zinc-200 ">
             <ul className="hidden sm:flex px-4 ">
                 <li>
-                    <NavLink to="/cricket/tournaments"
-                        onClick={() => handleActiveItemClick("T-20")}
-                        className={`text-gray-500 px=20 py-2 m-5 p-2 cursor-pointer ${activeItem === "T-20 World Cup" && "font-bold text-white   bg-slate-500  rounded-lg "}`}
+                    <NavLink to="/cricket/selectedteams"
+                        onClick={() => handleActiveItemClick("Teams")}
+                        className={`text-gray-500 px=20 py-2 m-5 p-2 cursor-pointer ${activeItem === "Teams" && "font-bold text-gray   underline decoration-zinc-200 underline-offset-8 "}`}
                         end>
-                        T-20 World Cup
+                        Teams
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/"
-                        onClick={() => handleActiveItemClick("IPL")}
-                        className={`text-gray-500 cursor-pointer ${activeItem === "IPL" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
+                    <NavLink to="/cricket/players"
+                        onClick={() => handleActiveItemClick("Players")}
+                        className={`text-gray-500 px=20 py-2 m-5 p-2  cursor-pointer ${activeItem === "Players" && "font-bold text-gray underline decoration-zinc-200 underline-offset-8"}`}
                     >
-                        IPL
+                        Players
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/cricket/icc_world_cup"
+                        onClick={() => handleActiveItemClick("Tournaments")}
+                        className={`text-gray-500 px=20 py-2 m-5 p-2  cursor-pointer ${activeItem === "Tournaments" && "font-bold text-gray underline decoration-zinc-200 underline-offset-8"}`}
+                    >
+                        Tournaments
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/cricket/tournaments"
+                        onClick={() => handleActiveItemClick("Fantasy Tournaments")}
+                        className={`text-gray-500 px=20 py-2 m-5 p-2  cursor-pointer ${activeItem === "Fantasy Tournaments" && "font-bold text-gray underline decoration-zinc-200 underline-offset-8"}`}
+                    >
+                        Fantasy Tournaments
                     </NavLink>
                 </li>
             </ul>
@@ -42,28 +58,46 @@ export default function CricketNavigation() {
                 <FaBars size={20} className="mr-4 ml-5 cursor-pointer" />
             </div>
 
-            <div onClick={handleClick} className={isOpen
-                ? "overflow-y-hidden md:hidden ease-in duration-300 absolute text-gray-300 left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex flex-col"
-                : "absolute top-20 h-screen left-[-100%] ease-in duration-400"}>
-                <ul className="h-full w-full text-center pt-12 mt-20 ">
-                    <li>
-                        <NavLink to="/cricket/tournaments"
-                            onClick={() => handleActiveItemClick("T-20 World Cup")}
-                            className={`text-white m-5 ${activeItem === "T-20 World Cup" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
-                            end
-                        >
-                            T-20 World Cup</NavLink>
+
+            <ul className="h-full w-full text-center pt-12 ">
+                <div onClick={handleClick} className={isOpen
+                    ? "overflow-y-hidden md:hidden ease-in duration-300 absolute text-gray-300 left-0  px-4 py-20 top-0 w-full h-screen bg-black/90  py-30 flex flex-col"
+                    : "absolute top-0 h-screen left-[-100%] ease-in duration-500"}>
+                    <li className="text-2xl py-7 mt-4">
+                        <NavLink to="/cricket/selectedteams"
+                            onClick={() => handleActiveItemClick("Teams")}
+                            className={`text-gray-500 px=20 py-2 m-5 p-2 cursor-pointer ${activeItem === "Teams" && "font-bold text-gray   underline decoration-zinc-200 underline-offset-8 "}`}
+                            end>
+                            Teams
+                        </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/"
-                            onClick={() => handleActiveItemClick("IPL")}
+                    <li className="text-2xl py-7">
+                        <NavLink to="/cricket/players"
+                            onClick={() => handleActiveItemClick("Players")}
                             className={`text-white mt-5 ${activeItem === "IPL" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
-                            end
+
                         >
-                            IPL</NavLink>
+                            Players</NavLink>
                     </li>
-                </ul>
-            </div>
+                    <li className="text-2xl py-5">
+                        <NavLink to="/cricket/icc_world_cup"
+                            onClick={() => handleActiveItemClick("Tournaments")}
+                            className={`text-white m-5 ${activeItem === "T-20 World Cup" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
+                        >
+                            Tournaments
+                        </NavLink>
+                    </li>
+                    <li className="text-2xl py-5">
+                        <NavLink to="/cricket/tournaments"
+                            onClick={() => handleActiveItemClick("Fantasy Tournaments")}
+                            className={`text-white px=20 py-2 m-5 p-2  cursor-pointer ${activeItem === "Fantasy Tournaments" && "font-bold text-gray underline decoration-zinc-200 underline-offset-8"}`}
+                        >
+                            Fantasy Tournaments
+                        </NavLink>
+                    </li>
+                </div>
+            </ul>
+
 
         </div>
     )
