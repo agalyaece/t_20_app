@@ -20,6 +20,8 @@ import TournamentPage from "./components/pages/tournaments/TournamentPage"
 import AddPlayerData from "./components/pages/tournaments/AddPlayerData"
 import UpdatePlayerDetails from "./components/pages/tournaments/UpdatePlayerData"
 import AddPlayerDetailsPage from "./components/pages/tournaments/AddPlayerDetailsPage"
+import PerformancePage from "./components/pages/Performance/PerformancePage"
+import PerformanceRoot from "./components/pages/Performance/PerformanceRoot"
 
 
 
@@ -61,6 +63,13 @@ const router = createBrowserRouter([
               {path: "/cricket/icc_world_cup/:country_1/vs/:country_2/updateplayer/:id", element: <UpdatePlayerDetails /> },
             ]
           },
+          {
+            path: "performance",
+            element: <PerformanceRoot />,
+            children: [
+              {index: true, element: <PerformancePage />},
+            ]
+          }
 
         ]
       },

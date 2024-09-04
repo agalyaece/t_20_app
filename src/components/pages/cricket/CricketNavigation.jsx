@@ -43,6 +43,16 @@ export default function CricketNavigation() {
                         Tournaments
                     </NavLink>
                 </li>
+
+                <li>
+                    <NavLink to="/cricket/performance"
+                        onClick={() => handleActiveItemClick("Player Performance")}
+                        className={`text-gray-500 px=20 py-2 m-5 p-2  cursor-pointer ${activeItem === "Player Performance" && "font-bold text-gray underline decoration-zinc-200 underline-offset-8"}`}
+                    >
+                       Player Performance
+                    </NavLink>
+                </li>
+
                 <li>
                     <NavLink to="/cricket/tournaments"
                         onClick={() => handleActiveItemClick("Fantasy Tournaments")}
@@ -74,7 +84,7 @@ export default function CricketNavigation() {
                     <li className="text-2xl py-7">
                         <NavLink to="/cricket/players"
                             onClick={() => handleActiveItemClick("Players")}
-                            className={`text-white mt-5 ${activeItem === "IPL" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
+                            className={`text-white mt-5 ${activeItem === "Players" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
 
                         >
                             Players</NavLink>
@@ -82,9 +92,17 @@ export default function CricketNavigation() {
                     <li className="text-2xl py-5">
                         <NavLink to="/cricket/icc_world_cup"
                             onClick={() => handleActiveItemClick("Tournaments")}
-                            className={`text-white m-5 ${activeItem === "T-20 World Cup" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
+                            className={`text-white m-5 ${activeItem === "Tournaments" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
                         >
                             Tournaments
+                        </NavLink>
+                    </li>
+                    <li className="text-2xl py-5">
+                        <NavLink to="/cricket/performance"
+                            onClick={() => handleActiveItemClick("Player Performance")}
+                            className={`text-white m-5 ${activeItem === "Player Performance" && "font-bold text-white underline decoration-zinc-200 underline-offset-8"}`}
+                        >
+                            Player Performance
                         </NavLink>
                     </li>
                     <li className="text-2xl py-5">

@@ -38,7 +38,7 @@ export default function AddPlayerData() {
             const data = await axios.get(`/cricket/icc_world_cup/${country_1}/vs/${country_2}/add_player_detail`);
             const players = data.data;
             setPlayerData(players);
-            console.log(players)
+            // console.log(players)
         } catch (error) {
             console.log(error);
         }
@@ -48,10 +48,10 @@ export default function AddPlayerData() {
         fetchPlayerDetails();
     }, [fetchPlayerDetails])
 
-    const processedPlayerData = {};
-    playerData.forEach((player) => {
-        processedPlayerData[player.name] = { runs: player.runs, wickets: player.wickets };
-    });
+    const processedPlayerData = playerData.reduce((acc, player) => {
+        acc[player.name] = { ...acc[player.name] || {}, runs: player.runs, wickets: player.wickets };
+        return acc;
+      }, {});
 
     return <>
      <Link to={`/cricket/icc_world_cup`}>
@@ -96,14 +96,17 @@ export default function AddPlayerData() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {country1Players.map((team_1) => (
-                                    <tr key={team_1._id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                {country1Players.map((team_1, index) => (
+                                    <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {team_1.name}
                                         </th>
 
                                         <td className="px-6 py-3 font-medium ">
                                             {processedPlayerData[team_1.name]?.runs}
+                                            {/* {playerData.map(() => (
+                                                
+                                            ))} */}
                                         </td>
                                         <td className="px-6 py-3 font-medium ">
                                             {processedPlayerData[team_1.name]?.wickets}
@@ -153,8 +156,8 @@ export default function AddPlayerData() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {country2Players.map((team_1) => (
-                                    <tr key={team_1._id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                {country2Players.map((team_1, index) => (
+                                    <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {team_1.name}
                                         </th>

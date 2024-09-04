@@ -18,7 +18,7 @@ export default function TournamentTeams() {
     setIsLoading(true)
 
     const data = await axios.get("/cricket/selectedteams")
-    console.log(data)
+    // console.log(data)
     setFetchedEvents(data)
     setIsLoading(false)
 

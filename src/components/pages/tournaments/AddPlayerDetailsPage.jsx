@@ -26,14 +26,21 @@ export default function AddPlayerDetailsPage() {
   function handleUpdatePlayer(event) {
     event.preventDefault();
     setButtonDisabled(true);
-    axios.post(
-      `/cricket/icc_world_cup/${country_1}/vs/${country_2}/add_player_detail/${id}`,
-      player
-    );
-    setButtonDisabled(false);
-    toast.success("Player added successfully!", { position: "top-right" });
-    navigate(`/cricket/icc_world_cup/${country_1}/vs/${country_2}/add_player_data`)
-
+    axios
+      .post(
+        `/cricket/icc_world_cup/${country_1}/vs/${country_2}/add_player_detail`,
+        { ...player }
+      )
+      .then(() => {
+        setButtonDisabled(false);
+        toast.success("Player added successfully!", { position: "top-right" });
+        navigate(`/cricket/icc_world_cup/${country_1}/vs/${country_2}/add_player_data`);
+      })
+      .catch((error) => {
+        console.error(error);
+        setButtonDisabled(false);
+        toast.error("An error occurred while adding player data. Please try again later.", { position: "top-right" });
+      });
   }
 
   useEffect(() => {
@@ -41,7 +48,10 @@ export default function AddPlayerDetailsPage() {
       .get(`/cricket/icc_world_cup/${country_1}/vs/${country_2}/getOneplayer/${id}`)
       .then((response) => {
         setPlayer({ ...response.data, country_1, country_2 });
-      })
+        console.log(response)
+      }
+      )
+
       .catch((err) => console.log(err));
 
 
@@ -119,7 +129,7 @@ export default function AddPlayerDetailsPage() {
                   type="number"
                   name="wickets"
                   pattern="^[0-9\b]+$"
-                  min={0}
+                  min={0} // Set min attribute to 0
                   step={1}
                   autoComplete="off"
                   onChange={handleUpdateInput}
